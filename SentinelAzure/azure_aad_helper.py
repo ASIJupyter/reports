@@ -1,5 +1,4 @@
 import azure
-import azure.cli
 import azure.mgmt.storage.models
 from azure.mgmt.compute.models import DiskCreateOption
 from azure.common.credentials import ServicePrincipalCredentials
@@ -31,11 +30,6 @@ class AADHelper:
             compute_client = ComputeManagementClient(credentials, subscription_id)
             network_client = NetworkManagementClient(credentials, subscription_id)
             storage_client = StorageManagementClient(credentials, subscription_id)
-        else:
-            resource_client = get_client_from_cli_profile(ResourceManagementClient, subscription_id = subscription_id)
-            compute_client = get_client_from_cli_profile(ComputeManagementClient, subscription_id = subscription_id)
-            network_client = get_client_from_cli_profile(NetworkManagementClient, subscription_id = subscription_id)
-            storage_client = get_client_from_cli_profile(StorageManagementClient, subscription_id = subscription_id)
 
         return compute_client, network_client, resource_client, storage_client
 
