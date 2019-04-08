@@ -1,4 +1,5 @@
 import azure
+import azure.cli
 import azure.mgmt.storage.models
 from azure.mgmt.compute.models import DiskCreateOption
 from azure.common.credentials import ServicePrincipalCredentials
