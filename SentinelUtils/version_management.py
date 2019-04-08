@@ -32,7 +32,9 @@ class ModuleVersionCheck:
                 version.requirement_met = False
                 version.message = str(sys.exc_info()[0].report)
             finally:
-                if version.message == '' or version.message.find("DistributionNotFound") < 0:
+                if version.name == 'azure' and version.message.find("VersionConflict") >= 0:
+                    version.requirement_met = True
+                elif version.message == '' or version.message.find("DistributionNotFound") < 0:
                     version = self.get_version_information(version, mod_info)
         
             module_versions.append(version)

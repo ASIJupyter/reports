@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="Sentinel-Utilities",
-    version="0.1.3",
+    version="0.1.6",
     author="Sentinel Notebooks Devs",
     author_email="zhzhao@microsoft.com",
     description="Tools for Sentinel Notebooks",
