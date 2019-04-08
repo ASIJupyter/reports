@@ -11,7 +11,7 @@ from azure.mgmt.storage import StorageManagementClient
 from azure.storage.blob import BlockBlobService, PageBlobService, AppendBlobService
 from azure.storage.blob.models import BlobBlock, ContainerPermissions, ContentSettings
 
-class ResourceManagementHelper:
+class ResourceHelper:
     def __init__(self, resource_client, resource_group):
         self.resource_client = resource_client
         self.resource_group = resource_group

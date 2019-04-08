@@ -117,7 +117,7 @@ class azure_windows_vm_with_vhd_explorer(object):
     compute_client, network_client, resource_client, storage_client = auth.authenticate('User ID Password', **{'user_id': user_id, 'password' : password, 'subscription_id' : subscription_id})
     
     # resource management
-    rm = SentinelAzure.azure_resource_management_helper.ResourceManagementHelper(resource_client, resource_group)
+    rm = SentinelAzure.azure_resource_helper.ResourceHelper(resource_client, resource_group)
     result = rm.create_resource_group(resource_group_location)
 
     # create a blob storage for uploading
