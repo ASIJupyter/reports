@@ -1,15 +1,11 @@
-import azure
-import azure.mgmt.storage.models
 from azure.mgmt.compute.models import DiskCreateOption
-from azure.common.credentials import ServicePrincipalCredentials
-from azure.common.credentials import UserPassCredentials
-from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.compute import ComputeManagementClient
-from azure.mgmt.network import NetworkManagementClient
-from azure.mgmt.storage import StorageManagementClient
-import requests
+import azure.mgmt.compute.models
 import json
 import pandas as pd
+import requests
+
+
 
 class VMExtensionProperties:
     def __init__(self):

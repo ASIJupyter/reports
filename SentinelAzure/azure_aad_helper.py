@@ -1,9 +1,5 @@
-import azure
-import azure.mgmt.storage.models
-from azure.mgmt.compute.models import DiskCreateOption
 from azure.common.credentials import ServicePrincipalCredentials
 from azure.common.credentials import UserPassCredentials
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.network import NetworkManagementClient
