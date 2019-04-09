@@ -30,9 +30,12 @@ class ModuleVersionCheck:
                 version.requirement_met = True
             except:
                 version.requirement_met = False
-                version.message = str(sys.exc_info()[0].report)
+                try:
+                    version.message = str(sys.exc_info()[0].report)
+                except:
+                    version.message = 'Unknown error'
             finally:
-                if version.name == 'azure' and version.message.find("VersionConflict") >= 0:
+                if 'azure' in version.name and version.message.find("VersionConflict") >= 0:
                     version.requirement_met = True
                 elif version.message == '' or version.message.find("DistributionNotFound") < 0:
                     version = self.get_version_information(version, mod_info)
