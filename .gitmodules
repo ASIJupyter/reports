@@ -1,0 +1,3 @@
+[submodule "ASINotebooks"]
+	path = ASINotebooks
+	url = https://github.com/ASIJupyter/ASINotebooks.git
