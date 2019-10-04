@@ -1,1 +1,4 @@
 
+[submodule "Notebooks"]
+	path = Notebooks
+	url = https://github.com/ASIJupyter/ASINotebooks.git
