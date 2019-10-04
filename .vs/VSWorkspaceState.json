@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\ASINotebooks",
+    "\\ASINotebooks\\miscnotebooks",
     "\\SentinelAzure",
     "\\SentinelUtils"
   ],
-  "SelectedNode": "\\SentinelAzure\\azure_storage_helper.py",
+  "SelectedNode": "\\ASINotebooks\\V4",
   "PreviewInSolutionExplorer": false
 }
