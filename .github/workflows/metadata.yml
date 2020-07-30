@@ -32,5 +32,5 @@ jobs:
       
     - name: echo output 
       run: |
-        echo ${{ steps.getfiles.outputs.files }}
+        echo "${{ steps.getfiles.outputs.files }}"
         
