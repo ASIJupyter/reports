@@ -32,5 +32,5 @@ jobs:
 
     - name: echo_output 
       run: |
-        echo ${{ steps.get_changed_file.outputs.files }}
+        echo ${{ steps.outputs.files }}
         
