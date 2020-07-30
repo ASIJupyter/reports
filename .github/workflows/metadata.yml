@@ -28,8 +28,8 @@ jobs:
     - name: get changed file
       id: getfiles
       run: |
-        echo "::set-output name=files::zhipeng"
-        #echo "::set-output name=files::$(git log -m -1 --name-only -r ${{ github.sha }})"
+        #echo "::set-output name=files::zhipeng"
+        echo "::set-output name=files::$(git log --name-only -r ${{ github.sha }})"
       
     - name: echo output 
       run: |
