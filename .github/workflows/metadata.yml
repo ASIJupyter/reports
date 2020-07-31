@@ -19,9 +19,6 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
-      env:
-          GIT_TRACE: 1
-          GIT_CURL_VERBOSE: 1
     #  with:
     #      fetch-depth: 0
     
@@ -33,10 +30,13 @@ jobs:
       
     - name: echo output 
       id: filechecker
+      env:
+          GIT_TRACE: 1
+          GIT_CURL_VERBOSE: 1
       run: |
         readarray -t added_modified_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.added_modified }}')"
         #   ::set-output name=hasipynb::false
-        ::set-output name=allfiles::join(added_modified_files, ',')
+        ::set-output name=allfiles::$(join(added_modified_files, ','))
         for added_modified_file in "${added_modified_files[@]}"; do
           echo "Do something with this ${added_modified_file}."
         done
