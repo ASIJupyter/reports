@@ -24,14 +24,18 @@ jobs:
           GIT_CURL_VERBOSE: 1
     #  with:
     #      fetch-depth: 0
-      
+    
     - name: get changed file
-      id: getfiles
-      run: |
-        #echo "::set-output name=files::zhipeng"
-        echo "::set-output name=files::$(git log --name-only -r ${{ github.sha }})"
+      id: files
+      uses: jitterbit/get-changed-files@v1
+      with:
+        format: 'json'
       
-    - name: echo output 
+    - name: echo output
       run: |
-        echo ${{ steps.getfiles.outputs.files }}
+        mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+        for added_modified_file in "${added_modified_files[@]}"; do
+          echo "Do something with this ${added_modified_file}."
+        done
+      
         
