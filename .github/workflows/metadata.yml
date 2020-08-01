@@ -35,7 +35,7 @@ jobs:
           GIT_CURL_VERBOSE: 1
       run: |
         readarray -t added_modified_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.added_modified }}')"
-        ::set-output name=hasipynb::true
+        echo "::set-output name=hasipynb::true"
         #::set-output name=allfiles::$(join(${{ steps.files.outputs.added_modified }}, ','))
         for added_modified_file in "${added_modified_files[@]}"; do
           echo "Do something with this ${added_modified_file}."
