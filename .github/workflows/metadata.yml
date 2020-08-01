@@ -51,7 +51,7 @@ jobs:
       run: |
         #echo ${{ steps.filechecker.outputs.hasipynb }}
         echo ${{ steps.filechecker.outputs.ipynbmodified }}
-        echo $(contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'xxmetaxx'))
+        echo contains('${{ steps.filechecker.outputs.ipynbmodified }}', 'xxmetaxx')
         
     - name: Send message to ms teams
       if: ${{ steps.filechecker.outputs.hasipynb == 'true' }}
