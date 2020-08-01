@@ -42,7 +42,13 @@ jobs:
           echo "::set-output name=hasipynb::contains(${added_modified_file}, 'meta')"
           echo "::set-output name=ipynbmodified::${added_modified_file}"
         done
-      
+    
+    - name: output test
+      run: |
+        echo ${{ steps.filechecker.outputs.hasipynb }}
+        echo ${{ steps.filechecker.outputs.ipynbmodified }}
+        
+        
     - name: Send message to ms teams
       if: ${{ steps.filechecker.outputs.hasipynb == 'true' }}
       uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
