@@ -44,7 +44,7 @@ jobs:
         done
     
     - name: output test
-      if: contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'meta')
+      if: contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'xxmetaxx')
       run: |
         #echo ${{ steps.filechecker.outputs.hasipynb }}
         echo ${{ steps.filechecker.outputs.ipynbmodified }}
