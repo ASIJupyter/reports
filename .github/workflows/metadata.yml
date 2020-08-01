@@ -44,11 +44,14 @@ jobs:
         done
     
     - name: output test
-      if: contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'xxmetaxx')
+      env:
+          GIT_TRACE: 1
+          GIT_CURL_VERBOSE: 1
+      if: "contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'xxmetaxx')"
       run: |
         #echo ${{ steps.filechecker.outputs.hasipynb }}
         echo ${{ steps.filechecker.outputs.ipynbmodified }}
-        
+        echo "contains(${{ steps.filechecker.outputs.ipynbmodified }}, 'xxmetaxx')"
         
     - name: Send message to ms teams
       if: ${{ steps.filechecker.outputs.hasipynb == 'true' }}
