@@ -39,7 +39,7 @@ jobs:
         #::set-output name=allfiles::$(join(${{ steps.files.outputs.added_modified }}, ','))
         for added_modified_file in "${added_modified_files[@]}"; do
           #if: contains(${added_modified_file}, 'meta')
-          echo "::set-output name=hasipynb::$(contains(${added_modified_file}, 'meta'))"
+          echo "::set-output name=hasipynb::$(contains(${{added_modified_file}}, 'meta'))"
           echo "::set-output name=ipynbmodified::${added_modified_file}"
         done
     
