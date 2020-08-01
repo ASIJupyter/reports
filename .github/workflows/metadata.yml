@@ -47,7 +47,7 @@ jobs:
       env:
           GIT_TRACE: 1
           GIT_CURL_VERBOSE: 1
-      if: contains( steps.filechecker.outputs.ipynbmodified , 'xxmetaxx')
+      if: contains( steps.filechecker.outputs.ipynbmodified , 'meta')
       run: |
         #echo ${{ steps.filechecker.outputs.hasipynb }}
         echo ${{ steps.filechecker.outputs.ipynbmodified }}
