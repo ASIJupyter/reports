@@ -47,7 +47,7 @@ jobs:
         #echo ::set-output name=allfiles::$(join(${added_modified_files[@]}, ';'))
         
         for added_modified_file in "${added_modified_files[@]}"; do
-          if: contains( "${added_modified_file}" , 'meta')
+          if contains( added_modified_file , 'meta')
             echo "::set-output name=ipynbmodified::${added_modified_file}"
         done
     
