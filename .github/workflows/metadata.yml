@@ -45,7 +45,7 @@ jobs:
       env:
           GIT_TRACE: 1
           GIT_CURL_VERBOSE: 1
-      if: contains( steps.files.outputs.added_modified , 'meta')
+      if: contains( steps.files.outputs.added_modified , '.ipynb')
       run: |
         echo ${{ steps.files.outputs.added_modified }}
         
