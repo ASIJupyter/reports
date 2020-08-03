@@ -46,16 +46,17 @@ jobs:
         #echo ::set-output name=allfiles::$(join(added_modified_files[@], ';'))
         #echo ::set-output name=allfiles::$(join(${added_modified_files[@]}, ';'))
         
+        echo ${{ steps.files.outputs.added_modified }}
         for added_modified_file in "${added_modified_files[@]}"; do
           #if: contains( added_modified_file , 'meta')
-          echo "::set-output name=ipynbmodified::${added_modified_file}"
+          #echo "::set-output name=ipynbmodified::${added_modified_file}"
         done
     
     - name: output test
       env:
           GIT_TRACE: 1
           GIT_CURL_VERBOSE: 1
-      if: contains( steps.filechecker.outputs.ipynbmodified , 'mexxta')
+      if: contains( steps.filechecker.outputs.ipynbmodified , 'meta')
       run: |
         #echo ${{ steps.filechecker.outputs.hasipynb }}
         echo ${{ steps.filechecker.outputs.ipynbmodified }}
