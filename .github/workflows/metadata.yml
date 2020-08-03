@@ -47,8 +47,7 @@ jobs:
           GIT_CURL_VERBOSE: 1
       if: contains( steps.files.outputs.added_modified , 'meta')
       run: |
-        echo ${{ steps.filechecker.outputs.ipynbmodified }}
-        echo ${{ steps.filechecker.outputs.allfiles }}
+        echo ${{ steps.files.outputs.added_modified }}
         
     - name: Send message to ms teams
       if: ${{ steps.filechecker.outputs.hasipynb == 'tradue' }}
