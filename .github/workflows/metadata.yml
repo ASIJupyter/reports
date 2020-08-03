@@ -39,7 +39,7 @@ jobs:
         echo ${{ steps.files.outputs.added_modified }}
         for added_modified_file in "${added_modified_files[@]}"; do
           echo "::set-output name=ipynbmodified::${added_modified_file}"
-        #done
+        done
     
     - name: output test
       env:
